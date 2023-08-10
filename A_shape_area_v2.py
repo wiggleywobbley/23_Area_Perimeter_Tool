@@ -16,7 +16,7 @@ def shape_area():
     except ValueError:
       print(error)
 
-
+print(shape_area)
 
   
   return shape_area
