@@ -13,7 +13,8 @@ def shape_area():
       print("What Shape do you want the area/perimeter calculated?")
       print("Circle, Square, Rectangle, Triangle, Parellelogram")
       shape = input().strip().lower()
-      #if the user inputs something that is not on the list a value error will occur, causing         the program to ask the same question again
+      #if the user inputs something that is not on the list a value error will occur, causing         
+      #the program to ask the same question again
       shapes.index(shape)
       shape_area.append(shape)
       valid = True
@@ -28,7 +29,8 @@ def shape_area():
       #asking question
       print("Would you like to calculate the area or perimeter of this shape?")
       area_per = input().strip().lower()
-      #if the user inputs something that is not on the list a value error will occur, causing         the program to ask the same question again
+      #if the user inputs something that is not on the list a value error will occur, causing         
+      #the program to ask the same question again
       calcs.index(area_per)
       shape_area.append(area_per)
       valid = True
@@ -37,3 +39,7 @@ def shape_area():
       print(error[1])
   #return a list with the values for the shape and the calculation the user wants done
   return shape_area
+
+poopy = shape_area()
+
+print("Program Continues")
