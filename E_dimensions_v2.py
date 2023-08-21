@@ -23,28 +23,33 @@ def dimensions(shape, calc):
       if calc == "area":
         if shape == "circle":
           print(f"What is the radius of your {shape}:")
-          input = int(input())
+          input = input()
           dimensions.append(input)
+          valid = True
         else:
-          print(f"What is the height of your {shape}:")
-          input = int(input())
+          input = input(f"What is the height of your {shape}:")
           dimensions.append(input)
           print()
           print(f"What is the width of your {shape}:")
-          input = int(input())
+          input = input()
           dimensions.append(input)
+          valid = True
       else:
         if shape == "circle":
           print(f"What is the radius of your {shape}:")
-          input = int(input())
+          input = input()
           dimensions.append(input)
+          valid = True
         else:
           lengths = perimeter(shape)
           for i in range(1, lengths[0]):
             dimensions.append(i)
+          valid = True
     except ValueError:
-      print("Please enter a number that is bellow 50")
+      print("Please enter a number")
 
   return dimensions
 
-penis = dimensions("rectangle", "perimeter")
+penis = dimensions("triangle", "area")
+
+print(penis)
