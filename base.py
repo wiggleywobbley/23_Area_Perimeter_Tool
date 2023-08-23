@@ -85,7 +85,7 @@ def perimeter(shape):
   for i in range(1, shape_value):
       # ask user the size of each side
       print(f"What is the size of side {i} (Don't include units):")
-      side = int(input()).lower()
+      side = int(input())
       print()
       # add each side to the list and return the list
       dimensions.append(side)
@@ -100,16 +100,21 @@ def dimension(shape, calc):
     if shape == "circle":
       # ask for the radius of the users circle
       print(f"What is the radius of your {shape}:")
-      radius = int(input()).lower()
+      radius = int(input())
       dimensions.append(radius)
+      print()
+    elif shape == "square":
+      print(f"What is the size of 1 side of you {shape}:")
+      side_size = int(input())
+      dimensions.append(side_size)
       print()
     else:
       print(f"What is the height of your {shape}:")
-      height = int(input()).lower()
+      height = int(input())
       dimensions.append(height)
       print()
       print(f"What is the width of your {shape}:")
-      width = int(input()).lower()
+      width = int(input())
       dimensions.append(width)
       print()
   else:
@@ -117,7 +122,7 @@ def dimension(shape, calc):
     if shape == "circle":
       # ask for the radius of the users circle
       print(f"What is the radius of your {shape}:")
-      radius = int(input()).lower()
+      radius = int(input())
       dimensions.append(radius)
       print()
     else:
@@ -140,6 +145,8 @@ def calculate(calcs, shape, dimensions):
       answer = (dimensions[0] * dimensions[1]) * 0.5
     elif shape == "circle":
       answer = 3.14 * (dimensions[0] ** 2)
+    elif shape == "square":
+      answer = dimensions[0] ** 2
     else:
       answer = dimensions[0] * dimensions[1]
   else:

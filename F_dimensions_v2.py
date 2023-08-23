@@ -32,6 +32,11 @@ def dimension(shape, calc):
       radius = int(input())
       dimensions.append(radius)
       print()
+    elif shape == "square":
+      print(f"What is the size of 1 side of you {shape}:")
+      side_size = int(input())
+      dimensions.append(side_size)
+      print()
     else:
       print(f"What is the height of your {shape}:")
       height = int(input())
