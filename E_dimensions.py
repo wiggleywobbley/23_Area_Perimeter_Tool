@@ -37,11 +37,22 @@ def dimensions(shape, calc):
     else:
       lengths = perimeter(shape)
       for i in range(1, lengths[0]):
-        dimensions.append(i)
+        add_lengths = lengths[i]
+        dimensions.append(add_lengths)
 
   return dimensions
 
-for i in range(10):
-  dumb = input("area or perimeter? ")
-  cunt = input("what shape? ")
-  bitch = dimensions(cunt, dumb)
+
+valid = False
+while not valid:
+  try:
+    cum = dimensions("circle", "perimeter")
+    value_lenth = len(cum)
+    for i in range(value_lenth):
+      value = cum[i]
+      int(value)
+      if value > 50:
+        int("Force ValueError")
+      valid = True
+  except ValueError:
+    print("Please enter numbers that are below 50")
