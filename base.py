@@ -40,6 +40,17 @@ def shape_area():
   #return a list with the values for the shape and the calculation the user wants done
   return shape_area
 
+def unit_chooser():
+  units = ["mm", "cm", "m"]
+  valid = False
+  while not valid:
+    try:
+      print("What is the unit that you are working in? mm/cm/m")
+      user_unit = input().lower().strip()
+      units.index(user_unit)
+      return user_unit
+    except ValueError:
+      print("Please enter one of the following units mm, cm, m")
 
 def perimeter(shape):
   dimensions = []
@@ -113,6 +124,8 @@ def calculate(calcs, shape, dimensions):
 
 shape_area = shape_area()
 
+user_unit = unit_chooser()
+
 valid = False
 while not valid:
   try:
@@ -130,3 +143,4 @@ while not valid:
 
 answer = calculate(shape_area[1], shape_area[0], dimensions)
 
+print(f"The {shape_area[1]} of your {shape_area[0]} is {answer}{user_unit}")
