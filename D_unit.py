@@ -9,5 +9,6 @@ def unit_chooser():
       return user_unit
     except ValueError:
       print("Please enter one of the following units mm, cm, m")
+      print()
 
 penis = unit_chooser()
