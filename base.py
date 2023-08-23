@@ -1,6 +1,6 @@
 def shape_area():
   #listing variables
-  shapes = ["circle", "square", "rectangle", "triangle", "parellelogram"]
+  shapes = ["circle", "square", "rectangle", "triangle", "parallelogram"]
   calcs = ["area", "perimeter"]
   error = ["Please enter one of the listed shapes", "Please enter either area or perimeter"]
   shape_area = []
@@ -11,7 +11,7 @@ def shape_area():
     try:
       #asking question
       print("What Shape do you want the area/perimeter calculated?")
-      print("Circle, Square, Rectangle, Triangle, Parellelogram")
+      print("Circle, Square, Rectangle, Triangle, Parallelogram")
       shape = input().strip().lower()
       #if the user inputs something that is not on the list a value error will occur, causing         
       #the program to ask the same question again
@@ -49,17 +49,12 @@ def perimeter(shape):
     shape_value = 2
   else:
     shape_value = 5
-    
+
+  dimensions.append(shape_value)
   for i in range(1, shape_value):
-    valid = False
-    while not valid:
-      try:
-        print(f"What is the size of side {i} (Don't include units):")
-        side = float(input())
-        dimensions.append(side)
-        valid = True
-      except ValueError:
-        print("Please enter a number:")
+      print(f"What is the size of side {i} (Don't include units):")
+      side = int(input())
+      dimensions.append(side)
   return dimensions
 
 
@@ -104,13 +99,15 @@ def calculate(calcs, shape, dimensions):
       answer = dimensions[0] * dimensions[1]
   else:
     if shape == "triangle":
-      answer = dimensions[0] + dimensions[1], dimensions[2]
+      answer = dimensions[0] + dimensions[1] + dimensions[2]
     elif shape == "circle":
       answer = (dimensions[0] * 2) * 3.14
+    elif shape == "square":
+      answer = dimensions[0] * 4
     else:
-      answer = dimensions[0] + dimensions[1], dimensions[2] * dimensions[3]
+      answer = dimensions[0] + dimensions[1] + dimensions[2] + dimensions[3]
 
-  # return the area/perimeter to printed and presented to the user
+  # return the area/perimeter to be printed and presented to the user
   return answer
 
 
@@ -119,7 +116,7 @@ shape_area = shape_area()
 valid = False
 while not valid:
   try:
-    dimensions = dimension("circle", "perimeter")
+    dimensions = dimension(shape_area[0], shape_area[1])
     value_lenth = len(dimensions)
     for i in range(value_lenth):
       value = dimensions[i]
@@ -129,3 +126,7 @@ while not valid:
       valid = True
   except ValueError:
     print("Please enter numbers that are below 50")
+    valid = False
+
+answer = calculate(shape_area[1], shape_area[0], dimensions)
+

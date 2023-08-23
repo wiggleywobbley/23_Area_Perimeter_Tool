@@ -46,13 +46,16 @@ def dimensions(shape, calc):
 valid = False
 while not valid:
   try:
-    cum = dimensions("circle", "perimeter")
+    cum = dimensions("triangle", "perimeter")
     value_lenth = len(cum)
     for i in range(value_lenth):
       value = cum[i]
-      int(value)
       if value > 50:
         int("Force ValueError")
+      int(value)
       valid = True
   except ValueError:
     print("Please enter numbers that are below 50")
+    valid = False
+    
+print(cum)

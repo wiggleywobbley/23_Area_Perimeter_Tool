@@ -10,11 +10,13 @@ def calculate(calcs, shape, dimensions):
       answer = dimensions[0] * dimensions[1]
   else:
     if shape == "triangle":
-      answer = dimensions[0] + dimensions[1], dimensions[2]
+      answer = dimensions[0] + dimensions[1] + dimensions[2]
     elif shape == "circle":
       answer = (dimensions[0] * 2) * 3.14
+    elif shape == "square":
+      answer = dimensions[0] * 4
     else:
-      answer = dimensions[0] + dimensions[1], dimensions[2] * dimensions[3]
+      answer = dimensions[0] + dimensions[1] + dimensions[2] + dimensions[3]
 
-  # return the area/perimeter to printed and presented to the user
+  # return the area/perimeter to be printed and presented to the user
   return answer
