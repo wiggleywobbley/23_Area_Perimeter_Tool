@@ -99,21 +99,21 @@ def dimension(shape, calc):
     # see what shape the user wants the area calculated for
     if shape == "circle":
       # ask for the radius of the users circle
-      print(f"What is the radius of your {shape}:")
+      print(f"What is the radius of your {shape} (Don't include units):")
       radius = int(input())
       dimensions.append(radius)
       print()
     elif shape == "square":
-      print(f"What is the size of 1 side of you {shape}:")
+      print(f"What is the size of 1 side of your {shape} (Don't include units):")
       side_size = int(input())
       dimensions.append(side_size)
       print()
     else:
-      print(f"What is the height of your {shape}:")
+      print(f"What is the height of your {shape} (Don't include units):")
       height = int(input())
       dimensions.append(height)
       print()
-      print(f"What is the width of your {shape}:")
+      print(f"What is the width of your {shape} (Don't include units):")
       width = int(input())
       dimensions.append(width)
       print()
@@ -121,7 +121,7 @@ def dimension(shape, calc):
     # see what shape the user wants the perimeter calculated for
     if shape == "circle":
       # ask for the radius of the users circle
-      print(f"What is the radius of your {shape}:")
+      print(f"What is the radius of your {shape} (Don't include units):")
       radius = int(input())
       dimensions.append(radius)
       print()
@@ -162,45 +162,45 @@ def calculate(calcs, shape, dimensions):
   # return the area/perimeter to be printed and presented to the user
   return answer
 
-
-# run the function shape_area to find out what calculations the user wants to make for what shape
-shape_area = shape_area()
-
-# run the function unit_chooser to see what unit the user is working with
-user_unit = unit_chooser()
-
-# while loop to have error correction and a maximum number for the dimension function
-valid = False
-while not valid:
-  try:
-    # run the function dimension with the 2 outputs from shape_area 
-    dimensions = dimension(shape_area[0], shape_area[1])
-    # find how long the dimensions list is
-    value_lenth = len(dimensions)
-    # for loop to check each value in the list to make sure the value is a number that is below 50
-    for i in range(value_lenth):
-      value = dimensions[i]
-      int(value)
-      if value > 50:
-        int("Force ValueError")
-      valid = True
-  except ValueError:
-    # print error message if an error occurs during the dimension function
-    print("Please enter numbers that are below 50")
-    print()
-    valid = False
-
-# put the values collected from the dimension function into a calculator to find the area/perimeter
-answer = calculate(shape_area[1], shape_area[0], dimensions)
-
-# define what the final statement will be
-final_statment = f"The {shape_area[1]} of your {shape_area[0]} is {answer}{user_unit}"
-
-if shape_area[1] == "area":
-  # if the user wants area calculated have the final unit be displayed as units squared
-  print(final_statment + "²")
-elif shape_area[1] == "perimeter" and shape_area[0] == "circle":
-  # if the user wanted the perimeter of a circle calculated make sure the final statment says circumference
-  print(f"The circumfrence of your {shape_area[0]} is {answer}{user_unit}")
-else:
-  print(final_statment)
+for i in range(2):
+  # run the function shape_area to find out what calculations the user wants to make for what shape
+  shape_and_area = shape_area()
+  
+  # run the function unit_chooser to see what unit the user is working with
+  user_unit = unit_chooser()
+  
+  # while loop to have error correction and a maximum number for the dimension function
+  valid = False
+  while not valid:
+    try:
+      # run the function dimension with the 2 outputs from shape_area 
+      dimensions = dimension(shape_and_area[0], shape_and_area[1])
+      # find how long the dimensions list is
+      value_lenth = len(dimensions)
+      # for loop to check each value in the list to make sure the value is a number that is below 50
+      for i in range(value_lenth):
+        value = dimensions[i]
+        int(value)
+        if value > 50:
+          int("Force ValueError")
+        valid = True
+    except ValueError:
+      # print error message if an error occurs during the dimension function
+      print("Please enter number symbols that are below 50")
+      print()
+      valid = False
+  
+  # put the values collected from the dimension function into a calculator to find the area/perimeter
+  answer = calculate(shape_and_area[1], shape_and_area[0], dimensions)
+  
+  # define what the final statement will be
+  final_statment = f"The {shape_and_area[1]} of your {shape_and_area[0]} is {answer}{user_unit}"
+  
+  if shape_and_area[1] == "area":
+    # if the user wants area calculated have the final unit be displayed as units squared
+    print(final_statment + "²")
+  elif shape_and_area[1] == "perimeter" and shape_and_area[0] == "circle":
+    # if the user wanted the perimeter of a circle calculated make sure the final statment says circumference
+    print(f"The circumference of your {shape_and_area[0]} is {answer}{user_unit}")
+  else:
+    print(final_statment)
